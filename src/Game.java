@@ -6,29 +6,26 @@ public class Game{
     public static Scanner input = new Scanner(System.in);
     private static void menu() {
 
-        System.out.println("Welcome to the Tic-Tac-Toe\n" +
-                "--------------------------" +
-                "\n" +
-                "(1) PLAYER MODE\n" +
-                "(2) PLAYER MODE\n" +
-                "(T) TUTORIAL");
+        System.out.println("""
+                Welcome to the Tic-Tac-Toe
+                --------------------------
+                (1) PLAYER MODE
+                (2) PLAYER MODE
+                (T) TUTORIAL
+                """);
         try {
             char option = input.next().charAt(0);
 
             switch (option) {
-
-                case '1':
-                    GameMode.computer(); break;
-                case '2':
-                    GameMode.pvp(); break;
-                case 'T':
-                    tutorial(); break;
-                default:
+                case '1' -> GameMode.computer();
+                case '2' -> GameMode.pvp();
+                case 'T' -> tutorial();
+                default -> {
                     System.out.println("Entry invalid");
                     Thread.sleep(3500);
                     clearScreen();
                     menu();
-
+                }
             }
 
         } catch (Exception e) {
@@ -36,7 +33,7 @@ public class Game{
         }
     }
         public static void tutorial(){
-            System.out.print("Tutorial");
+            System.out.println("Tutorial");
         }
 
         public static void clearScreen(){

@@ -1,6 +1,6 @@
 public class Players {
-    private String name;
-    private char marker;
+    private final String name;
+    private final char marker;
     private int points;
 
     public Players(String name, char marker){
