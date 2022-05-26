@@ -29,7 +29,7 @@ public class Game{
             }
 
         } catch (Exception e) {
-            System.out.print(e);
+            System.out.print("An error occurs");
         }
     }
         public static void tutorial(){
@@ -42,7 +42,8 @@ public class Game{
         }
 
         public static void main(String[] args){
-            menu();
+        clearScreen();
+        menu();
         }
 
     }

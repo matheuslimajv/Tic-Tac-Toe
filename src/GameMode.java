@@ -25,10 +25,10 @@ public class GameMode {
 
         Players player1 = new Players(name, marker);
         Players player2 = new Players(name1, marker1);
-
         game(player1, player2);
 
     }
+
 
     private static void game(Players player1, Players player2) {
 
@@ -36,7 +36,11 @@ public class GameMode {
         Board.setInitialBoard();
         while (draw(player1, player2) || endGame(player1, player2)){
 
+            System.out.printf("%s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
+                               player2.getPoints());
+            System.out.println();
             System.out.println(Board.printBoard());
+
             System.out.printf("%s, you turn: ", player1.getName());
             int move = Game.input.nextInt();
             Board.setPosition(move, player1.getMarker());
@@ -46,31 +50,38 @@ public class GameMode {
                 break;
             }
 
+            System.out.printf("%s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
+                               player2.getPoints());
+            System.out.println();
             System.out.println(Board.printBoard());
             System.out.printf("%s, you turn: ", player2.getName());
             int move1 = Game.input.nextInt();
             Board.setPosition(move1, player2.getMarker());
             Game.clearScreen();
+
+            if (!draw(player1, player2) || !endGame(player1, player2)){
+                break;
+            }
         }
 
     }
 
     private static boolean draw(Players player1, Players player2) {
-
-        Boolean x = null;
+        List<Boolean> list = new ArrayList<>(9);
+        Boolean y = null;
         for (int i = 0; i < Board.board.length; i++) {
 
             for (int j = 0; j < Board.board[i].length; j++) {
-
+                boolean x;
                 x = Board.board[i][j].equals(' ');
-                List<Boolean> list = new ArrayList<>(8);
                 list.add(x);
-                x = list.contains(true);
+                y = list.contains(true);
             }
         }
 
-        assert x != null;
-        if (x.equals(false)) {
+
+        assert y != null;
+        if (y.equals(false) && endGame(player1, player2)) {
 
             System.out.println("Game is a draw");
             player2.setPoints(50);
@@ -224,7 +235,7 @@ public class GameMode {
                 }
 
             }
-        } if (Board.board[0][0].equals(player2.getMarker()) && Board.board[0][1].equals(player2.getMarker()) && Board.board[0][2].equals(player2.getMarker())) {
+        } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[0][1].equals(player2.getMarker()) && Board.board[0][2].equals(player2.getMarker())) {
             System.out.printf("%s wins !!!\n", player2.getName());
             player2.setPoints(100);
             System.out.println("Do you play an another game ? ");
@@ -353,7 +364,8 @@ public class GameMode {
 
             }
 
-            }
+
+        }
 
 
      return true;
