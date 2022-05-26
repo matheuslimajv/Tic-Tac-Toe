@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7751ea6a-1cbc-4fa3-92bb-ddf562da5fdb" name="Changes" comment="issues resolved">
+    <list default="true" id="7751ea6a-1cbc-4fa3-92bb-ddf562da5fdb" name="Changes" comment="pvp mode finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameMode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,8 +93,26 @@
       <option name="project" value="LOCAL" />
       <updated>1653595772149</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="pvp mode finished">
+      <created>1653596718258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653596718258</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -109,6 +128,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Few steps to finish" />
     <MESSAGE value="issues resolved" />
-    <option name="LAST_COMMIT_MESSAGE" value="issues resolved" />
+    <MESSAGE value="pvp mode finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="pvp mode finished" />
   </component>
 </project>

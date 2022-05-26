@@ -29,14 +29,12 @@ public class Board {
         } else if (move == 9 && board[2][2].equals(' ')) {
             board[2][2] = marker;
         } else {
-            String x = ("Invalid move");
-            while(true){
-                System.out.printf("%s try again: ", x);
+                System.out.print("Invalid move, try again: ") ;
                 move = Game.input.nextInt();
                 setPosition(move, marker);
         }
     }
-}
+
     public static String printBoard(){
         return String.format("""
                         \t| %c | %c | %c |

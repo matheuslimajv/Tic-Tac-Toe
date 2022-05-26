@@ -32,11 +32,11 @@ public class GameMode {
 
     private static void game(Players player1, Players player2) {
 
-
+	Game.clearScreen();
         Board.setInitialBoard();
         while (draw(player1, player2) || endGame(player1, player2)){
 
-            System.out.printf("%s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
+            System.out.printf("%5s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
                                player2.getPoints());
             System.out.println();
             System.out.println(Board.printBoard());
@@ -44,13 +44,14 @@ public class GameMode {
             System.out.printf("%s, you turn: ", player1.getName());
             int move = Game.input.nextInt();
             Board.setPosition(move, player1.getMarker());
+
             Game.clearScreen();
 
             if (!draw(player1, player2) || !endGame(player1, player2)){
                 break;
             }
 
-            System.out.printf("%s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
+            System.out.printf("%5s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
                                player2.getPoints());
             System.out.println();
             System.out.println(Board.printBoard());
