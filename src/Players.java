@@ -17,7 +17,7 @@ public class Players {
     }
 
     public void setPoints(int points) {
-        this.points = points;
+        this.points += points;
     }
 
     public char getMarker(){
