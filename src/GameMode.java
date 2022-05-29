@@ -6,7 +6,7 @@ public class GameMode {
     public static void computer() {
 
     }
-
+    // Player vs player mode
     public static void pvp() {
         Game.clearScreen();
         System.out.println("Player 1, type your name: ");
@@ -29,7 +29,7 @@ public class GameMode {
 
     }
 
-
+    //Where Game's logic is defined
     private static void game(Players player1, Players player2) {
 
 	Game.clearScreen();
@@ -66,7 +66,7 @@ public class GameMode {
         }
 
     }
-
+    //When all spaces are filled
     private static boolean draw(Players player1, Players player2) {
         List<Boolean> list = new ArrayList<>(9);
         Boolean y = null;
@@ -97,6 +97,7 @@ public class GameMode {
 
                 case 'y' -> game(player1, player2);
                 case 'n' -> {
+
                     Game.clearScreen();
                     System.exit(0);
                 }
