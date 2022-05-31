@@ -44,7 +44,7 @@ public class GameMode {
             System.out.printf("%s, you turn: ", player1.getName());
             int move = Game.input.nextInt();
             Board.setPosition(move, player1.getMarker());
-
+            System.out.println(Board.printBoard());
             Game.clearScreen();
 
             if (!draw(player1, player2) || !endGame(player1, player2)){
@@ -107,7 +107,7 @@ public class GameMode {
         }
         return true;
     }
-    public static boolean endGame(Players player1, Players player2) {
+    private static boolean endGame(Players player1, Players player2) {
         if (Board.board[0][0].equals(player1.getMarker()) && Board.board[0][1].equals(player1.getMarker()) && Board.board[0][2].equals(player1.getMarker())) {
             System.out.printf("%s wins !!!\n", player1.getName());
             player1.setPoints(100);
