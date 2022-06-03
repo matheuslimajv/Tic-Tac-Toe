@@ -285,7 +285,7 @@ public class GameMode {
                 }
 
             }
-            } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[1][0].equals(player1.getMarker()) && Board.board[2][0].equals(player2.getMarker())) {
+            } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[1][0].equals(player2.getMarker()) && Board.board[2][0].equals(player2.getMarker())) {
             System.out.printf("%s wins !!!\n", player2.getName());
             player2.setPoints(100);
             System.out.println("Do you play an another game ? ");
