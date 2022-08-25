@@ -29,21 +29,21 @@ public class Board {
         } else if (move == 9 && board[2][2].equals(' ')) {
             board[2][2] = marker;
         } else {
-                System.out.print("Invalid move, try again: ") ;
-                move = Game.input.nextInt();
-                setPosition(move, marker);
+            System.out.print("Invalid move, try again: ");
+            move = Game.input.nextInt();
+            setPosition(move, marker);
         }
     }
 
-    public static String printBoard(){
+    public static String printBoard() {
         return String.format("""
                         \t| %c | %c | %c |
                         \t| %c | %c | %c |
                         \t| %c | %c | %c |
                         """
-                ,board[0][0],board[0][1],board[0][2],
-                board[1][0],board[1][1],board[1][2],
-               board[2][0],board[2][1],board[2][2]);
+                , board[0][0], board[0][1], board[0][2],
+                board[1][0], board[1][1], board[1][2],
+                board[2][0], board[2][1], board[2][2]);
 
 
     }

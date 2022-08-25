@@ -3,7 +3,7 @@ public class Players {
     private final char marker;
     private int points;
 
-    public Players(String name, char marker){
+    public Players(String name, char marker) {
         this.name = name;
         this.marker = marker;
     }
@@ -20,7 +20,7 @@ public class Players {
         this.points += points;
     }
 
-    public char getMarker(){
+    public char getMarker() {
         return marker;
     }
 }

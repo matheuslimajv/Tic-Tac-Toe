@@ -6,6 +6,7 @@ public class GameMode {
     public static void computer() {
 
     }
+
     // Player vs player mode
     public static void pvp() {
         Game.clearScreen();
@@ -32,12 +33,12 @@ public class GameMode {
     //Where Game's logic is defined
     private static void game(Players player1, Players player2) {
 
-	Game.clearScreen();
+        Game.clearScreen();
         Board.setInitialBoard();
-        while (draw(player1, player2) || endGame(player1, player2)){
+        while (draw(player1, player2) || endGame(player1, player2)) {
 
             System.out.printf("%5s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
-                               player2.getPoints());
+                    player2.getPoints());
             System.out.println();
             System.out.println(Board.printBoard());
 
@@ -47,12 +48,12 @@ public class GameMode {
 
             Game.clearScreen();
 
-            if (!draw(player1, player2) || !endGame(player1, player2)){
+            if (!draw(player1, player2) || !endGame(player1, player2)) {
                 break;
             }
 
             System.out.printf("%5s : %d \t%s : %d\n", player1.getName(), player1.getPoints(), player2.getName(),
-                               player2.getPoints());
+                    player2.getPoints());
             System.out.println();
             System.out.println(Board.printBoard());
             System.out.printf("%s, you turn: ", player2.getName());
@@ -60,12 +61,13 @@ public class GameMode {
             Board.setPosition(move1, player2.getMarker());
             Game.clearScreen();
 
-            if (!draw(player1, player2) || !endGame(player1, player2)){
+            if (!draw(player1, player2) || !endGame(player1, player2)) {
                 break;
             }
         }
 
     }
+
     //When all spaces are filled
     private static boolean draw(Players player1, Players player2) {
         List<Boolean> list = new ArrayList<>(9);
@@ -90,7 +92,7 @@ public class GameMode {
             System.out.printf("%s : %d points\n", player1.getName(), player1.getPoints());
             System.out.printf("%s : %d points\n", player2.getName(), player2.getPoints());
 
-            System.out.println("Do you want play again ? (y/n)");
+            System.out.println("Play again? (y/n)");
             char option = Game.input.next().charAt(0);
 
             switch (option) {
@@ -102,20 +104,27 @@ public class GameMode {
                     System.exit(0);
                 }
             }
-
-
         }
         return true;
     }
+
     public static boolean endGame(Players player1, Players player2) {
-        if (Board.board[0][0].equals(player1.getMarker()) && Board.board[0][1].equals(player1.getMarker()) && Board.board[0][2].equals(player1.getMarker())) {
+        if (Board.board[0][0].equals(player1.getMarker()) && Board.board[0][1].equals(player1.getMarker()) && Board.board[0][2].equals(player1.getMarker()) ||
+                Board.board[1][0].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[1][2].equals(player1.getMarker()) ||
+                Board.board[2][0].equals(player1.getMarker()) && Board.board[2][1].equals(player1.getMarker()) && Board.board[2][2].equals(player1.getMarker()) ||
+                Board.board[0][0].equals(player1.getMarker()) && Board.board[1][0].equals(player1.getMarker()) && Board.board[2][0].equals(player1.getMarker()) ||
+                Board.board[0][1].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[2][1].equals(player1.getMarker()) ||
+                Board.board[0][2].equals(player1.getMarker()) && Board.board[1][2].equals(player1.getMarker()) && Board.board[2][2].equals(player1.getMarker()) ||
+                Board.board[0][0].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[2][2].equals(player1.getMarker()) ||
+                Board.board[0][2].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[2][0].equals(player1.getMarker())) {
+
             System.out.printf("%s wins !!!\n", player1.getName());
             player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
+            System.out.println("Play again? ");
 
             char option = Game.input.next().charAt(0);
 
-            switch (option){
+            switch (option) {
 
                 case 'y' -> game(player1, player2);
                 case 'n' -> {
@@ -124,252 +133,30 @@ public class GameMode {
                 }
 
             }
+        } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[0][1].equals(player2.getMarker()) && Board.board[0][2].equals(player2.getMarker()) ||
+                Board.board[1][0].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[1][2].equals(player2.getMarker()) ||
+                Board.board[2][0].equals(player2.getMarker()) && Board.board[2][1].equals(player2.getMarker()) && Board.board[2][2].equals(player2.getMarker()) ||
+                Board.board[0][0].equals(player2.getMarker()) && Board.board[1][0].equals(player1.getMarker()) && Board.board[2][0].equals(player2.getMarker()) ||
+                Board.board[0][1].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[2][1].equals(player2.getMarker()) ||
+                Board.board[0][2].equals(player2.getMarker()) && Board.board[1][2].equals(player2.getMarker()) && Board.board[2][2].equals(player2.getMarker()) ||
+                Board.board[0][0].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[2][2].equals(player2.getMarker()) ||
+                Board.board[0][2].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[2][0].equals(player2.getMarker())) {
 
-        } else if (Board.board[1][0].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[1][2].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[2][0].equals(player1.getMarker()) && Board.board[2][1].equals(player1.getMarker()) && Board.board[2][2].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[0][0].equals(player1.getMarker()) && Board.board[1][0].equals(player1.getMarker()) && Board.board[2][0].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[0][1].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[2][1].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[0][2].equals(player1.getMarker()) && Board.board[1][2].equals(player1.getMarker()) && Board.board[2][2].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[0][0].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[2][2].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[0][2].equals(player1.getMarker()) && Board.board[1][1].equals(player1.getMarker()) && Board.board[2][0].equals(player1.getMarker())) {
-            System.out.printf("%s wins !!!\n", player1.getName());
-            player1.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-        } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[0][1].equals(player2.getMarker()) && Board.board[0][2].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
+            System.out.printf("%s wins!!!\n", player2.getName());
             player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
+            System.out.println("Play again? (y/n)");
 
             char option = Game.input.next().charAt(0);
 
-            switch (option){
+            switch (option) {
 
                 case 'y' -> game(player1, player2);
                 case 'n' -> {
                     Game.clearScreen();
                     System.exit(0);
                 }
-
             }
-            } else if (Board.board[1][0].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[1][2].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-            } else if (Board.board[2][0].equals(player2.getMarker()) && Board.board[2][1].equals(player2.getMarker()) && Board.board[2][2].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-            } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[1][0].equals(player1.getMarker()) && Board.board[2][0].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-            } else if (Board.board[0][1].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[2][1].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-            } else if (Board.board[0][2].equals(player2.getMarker()) && Board.board[1][2].equals(player2.getMarker()) && Board.board[2][2].equals(player2.getMarker())){
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-            } else if (Board.board[0][0].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[2][2].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-            } else if (Board.board[0][2].equals(player2.getMarker()) && Board.board[1][1].equals(player2.getMarker()) && Board.board[2][0].equals(player2.getMarker())) {
-            System.out.printf("%s wins !!!\n", player2.getName());
-            player2.setPoints(100);
-            System.out.println("Do you play an another game ? ");
-
-            char option = Game.input.next().charAt(0);
-
-            switch (option){
-
-                case 'y' -> game(player1, player2);
-                case 'n' -> {
-                    Game.clearScreen();
-                    System.exit(0);
-                }
-
-            }
-
-
         }
-
-
-     return true;
+        return true;
     }
 }
